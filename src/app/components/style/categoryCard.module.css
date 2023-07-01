@@ -1,0 +1,17 @@
+.tags{
+
+}
+.categoryItem{
+    min-height: 500px !important;
+    margin: 5px;
+
+}
+.subtitle{
+    font-size: 0.5em !important;
+}
+
+.categoryItem .btnCta{
+    border: 1px solid white !important;
+    background: transparent !important;
+    backdrop-filter: blur(5px) !important;
+}
