@@ -1,113 +1,115 @@
 import Image from 'next/image'
+import { Input } from 'postcss'
+
+import CategoryCard from './components/CategoryCard'
+
+import Category from './pages/Category'
+
+import CaliopeImage from '../../public/images/musas/caliope.png'
+import ClioImage from '../../public/images/musas/clio.png'
+import EuterpeImage from '../../public/images/musas/euterpe.png'
+import TaliaImage from '../../public/images/musas/talia.png'
+
+import CaliopeBackground from '../../public/images/musas/caliope-bg.jpg'
+import ClioBackground from '../../public/images/musas/clio-bg.jpg'
+import ProductSearchResults from './components/ProductSearchResults'
+
 
 export default function Home() {
+
+  const products = [
+    { id: 1, title: "Harry Potter", category: "caliope", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 2, title: "Percy Jackson", category: "caliope", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 3, title: "Kevin", category: "caliope", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 4, title: "Taylor Swift", category: "clio", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 5, title: "Pink Floyd", category: "clio", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 6, title: "Capivara", category: "clio", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 7, title: "Cachorro quente", category: "euterpe", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" },
+    { id: 8, title: "Taylor Swift", category: "caliope", image: "https://lojasaraivanew.vtexassets.com/arquivos/ids/166765-1200-auto?v=638010250339230000&width=1200&height=auto&aspect=true" }
+  ]
+  
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div className="flex min-h-[120vh] flex-col items-center justify-between ">
+        <div className="z-10 fixed w-full flex flex-col items-center backdrop-blur-sm p-3">
+          <div className="container max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+            <p className="fixed left-0 top-0 flex justify-center backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:dark:bg-zinc-800/30">
+              Mnemosine Logo
+            </p>
+            <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+              <a
+                className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+                href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                
+                <Image
+                  src="/images/instagram.svg"
+                  alt="Vercel Logo"
+                  className="light"
+                  width={20}
+                  height={24}
+                  priority
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <ProductSearchResults productProps= {products}/> 
+        
+        <div className="flex flex-col text-center mb-[100px]" >
+          <h2 className="text-4xl font-medium"> Explore categorias </h2>
+          <div className="grid my-10 mb-32 lg:mb-0 lg:grid-cols-4 lg:text-left"> 
+          
+          <CategoryCard 
+            title= 'Caliope'
+            subtitle='A da bela voz'
+            description='teste de descricao'
+            backgroundUrl={CaliopeImage}
+            name="caliope"
+          />
+
+          <CategoryCard 
+            title= 'Clio'
+            subtitle='A Proclamadora'
+            description='Clio é a musa da história e da criatividade, aquela que divulga e celebra as realizações.'
+            backgroundUrl={ClioImage}
+            name="clio"
+          />
+          <CategoryCard 
+            title= 'Talia'
+            subtitle='A que faz brotar flores'
+            description='Tália era a musa da comédia, representada vestindo uma máscara cômica e carregando ramos de hera. '
+            backgroundUrl={TaliaImage}
+            name="talia"
+          />
+          <CategoryCard 
+            title= 'Euterpe'
+            subtitle='A doadora de prazeres'
+            description='Era a musa da música. No final do período clássico, foi nomeada a musa da poesia lírica e usava uma flauta. '
+            backgroundUrl={EuterpeImage}
+            name="euterpe"
+          />
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      <Category 
+        subtitle='A da bela voz'
+        title='Caliope'
+        description='Foi a musa da poesia épica, da ciência em geral e da eloquência e a mais velha e sábia das musas, e é considerada por vezes a rainha destas.'
+        background = {CaliopeBackground}
+        buttonLink='#teste'
         />
-      </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <Category 
+        subtitle='A Proclamadora'
+        title='Clio'
+        description='Clio é a musa da história e da criatividade, aquela que divulga e celebra as realizações.'
+        background = {ClioBackground}
+        buttonLink='#teste'/>
     </main>
   )
 }
